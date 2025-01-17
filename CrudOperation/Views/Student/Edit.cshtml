@@ -1,0 +1,29 @@
+﻿@model CrudOperation.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<h1>Edit Student</h1>
+
+<form method="post" style="border: 1px solid #ccc; padding: 20px; border-radius: 5px; width: 50%; margin: auto; background-color: #f9f9f9;">
+    <div style="margin-bottom: 15px;">
+        <label for="Name" style="font-weight: bold;">Name</label>
+        <input type="text" id="Name" name="Name" value="@Model.Name" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" />
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="Age" style="font-weight: bold;">Age</label>
+        <input type="number" id="Age" name="Age" value="@Model.Age" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" />
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="Email" style="font-weight: bold;">Email</label>
+        <input type="email" id="Email" name="Email" value="@Model.Email" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" />
+    </div>
+
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-success" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px;">Save</button>
+        <a asp-action="Index" class="btn btn-secondary" style="padding: 10px 20px; text-decoration: none; color: white; background-color: #6c757d; border-radius: 5px;">Cancel</a>
+    </div>
+</form>

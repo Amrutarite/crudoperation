@@ -1,0 +1,49 @@
+﻿@model CrudOperation.Models.Student
+
+@{
+    ViewData["Title"] = "Create Student";
+}
+
+<h1 class="text-center my-4">Create Student</h1>
+
+<form method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <!-- Added a pattern to ensure only letters and spaces are allowed in the name -->
+        <input type="text" id="Name" name="Name" class="form-control" value="@Model?.Name" placeholder="Enter student name" required pattern="^[A-Za-z\s]+$" />
+        <div class="invalid-feedback">Please provide a valid name (only letters and spaces are allowed).</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Age" class="form-label">Age</label>
+        <input type="number" id="Age" name="Age" class="form-control" value="@Model?.Age" placeholder="Enter student age" required />
+        <div class="invalid-feedback">Please provide a valid age.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <!-- Retaining the type="email" for basic email format validation -->
+        <input type="email" id="Email" name="Email" class="form-control" value="@Model?.Email" placeholder="Enter student email" required />
+        <div class="invalid-feedback">Please provide a valid email (e.g., example@domain.com).</div>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary w-100">Create</button>
+    </div>
+</form>
+
+<script>
+    (function () {
+        'use strict';
+        const forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
